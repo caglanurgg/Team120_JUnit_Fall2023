@@ -20,9 +20,9 @@ public class C01_Assertions {
     //		○ titleTest => Sayfa başlığının “Rest” içermediğini(contains) test edin
     //		○ logoTest => BestBuy logosunun görüntülendigini test edin
     //		○ FrancaisLinkTest => Fransizca Linkin görüntülendiğini test edin
-    static WebDriver driver;
+    static WebDriver driver; // static methodlarda kullanilsin diye
 
-    @BeforeClass
+    @BeforeClass // static olmasi mecburi
     public static void setup(){
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
@@ -31,14 +31,26 @@ public class C01_Assertions {
         driver.get("https://www.bestbuy.com/");
     }
 
-    @AfterClass
+    /*
+    WebDriverManager.firefoxdriver().setup(); kodu,
+    Firefox tarayıcısını otomatik olarak yapılandırmak ve
+    kullanıma hazır hale getirmek için kullanılır.
+    Bu kod parçası, Firefox sürücüsünün bilgisayarınıza otomatik olarak indirilmesini ve
+    yüklenmesini sağlar. Bu, tarayıcının sürümü ile WebDriver'ın
+    uyumlu olduğundan emin olmanıza yardımcı olur.
+
+    driver = new FirefoxDriver(); kodu, WebDriver ile Firefox tarayıcısını kullanmak için
+    bir FirefoxDriver nesnesi oluşturur. Bu nesne, Selenium'un Firefox tarayıcısını
+    açmasına ve kontrol etmesine olanak tanır.
+     */
+    @AfterClass // static olmasi mecburi
     public static void teardown(){
         driver.close();
     }
 
     @Test
     public void urlTest(){
-        //		○ Sayfa URL’inin https://www.bestbuy.com/ ‘a esit oldugunu test edin
+        //○ Sayfa URL’inin https://www.bestbuy.com/ ‘a esit oldugunu TEST EDIN
         String expectedUrl = "https://www.bestbuy.com/";
         String actualUrl = driver.getCurrentUrl();
 
@@ -48,7 +60,7 @@ public class C01_Assertions {
 
     @Test
     public void titleTesti(){
-        //		○ titleTest => Sayfa başlığının “Rest” içermediğini(contains) test edin
+        //   titleTest => Sayfa baslıgının “Rest” icermediğini(contains) TEST EDIN
 
         String unexpectedIcerik = "Rest";
         String actualTitle = driver.getTitle();
@@ -58,7 +70,7 @@ public class C01_Assertions {
 
     @Test
     public void logoTesti(){
-        //		○ logoTest => BestBuy logosunun görüntülendigini test edin
+        //	logoTest => BestBuy logosunun görüntülendigini TEST EDIN
         WebElement logoElementi = driver.findElement(By.xpath("(//img[@alt = 'Best Buy Logo'])[1]"));
 
         Assert.assertTrue(logoElementi.isDisplayed());
@@ -66,7 +78,7 @@ public class C01_Assertions {
 
     @Test
     public void francaisTesti(){
-        //		○ FrancaisLinkTest => Fransizca Linkin görüntülendiğini test edin
+        // FrancaisLinkTest => Fransizca Linkin görüntülendiğini TEST EDIN
         WebElement francaisLinkElementi = driver.findElement(By.xpath("//button[normalize-space()='Français']"));
 
         Assert.assertTrue(francaisLinkElementi.isDisplayed());
