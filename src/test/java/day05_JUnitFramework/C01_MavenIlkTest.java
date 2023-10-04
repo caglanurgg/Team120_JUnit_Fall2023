@@ -41,7 +41,7 @@ public class C01_MavenIlkTest {
 
 
         //**5- Ilk urunu tiklayalim //div[@id='a-page']
-        driver.findElement(By.xpath("(//*[@class='a-size-medium a-color-base a-text-normal'])[1]"))
+        driver.findElement(By.xpath("(//*[@class='a-size-medium a-color-base a-text.txt-normal'])[1]"))
                 .click();
 
 

@@ -17,7 +17,7 @@ public class C02_Iframe extends TestBase {
 
         WebElement cookiesIFrame = driver.findElement(By.id("gdpr-consent-notice"));
         driver.switchTo().frame(cookiesIFrame);
-        driver.findElement(By.xpath("//*[text()='Accept All']")).click();
+        driver.findElement(By.xpath("//*[text.txt()='Accept All']")).click();
         //2) sayfadaki iframe sayısını bulunuz.
         List<WebElement> iframeList = driver.findElements(By.tagName("iframe"));
         System.out.println("Sayfadaki iframe sayisi : " + iframeList.size());
