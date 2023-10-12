@@ -12,17 +12,21 @@ import java.time.Duration;
 import java.util.List;
 
 public class C01_MavenIlkTest {
+    /*
+    maven projesinde bu islemleri yapabilmemiz icin oncelikle main method olusturmamiz
+    sonra da main method icerisinde WebDriver ile ilgili gorevleri atamalari ve
+    ilk deger atamalarini yapmamiz lazim.
+     */
 
     public static void main(String[] args) {
 
-        WebDriverManager.chromedriver().setup();
-        /*
-            18.satiri yazmamiz mecburi degildir
+         /*
+            29.satiri yazmamiz mecburi degildir
             Selenium 4.8 versiyonundan itibaren kendi WebDriver'ini olusturmustur
             biz 13.satirdaki gibi disardan bir WebDriver tanimlamazsak
             Selenium otomatik olarak kendi WebDriver'ini devreye sokar
-
          */
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
