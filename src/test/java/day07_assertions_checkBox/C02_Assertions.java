@@ -22,7 +22,7 @@ public class C02_Assertions {
     //	○ Search Box 'in erisilebilir oldugunu test edin (isEnabled())
     //	○ wrongTitleTest => Sayfa basliginin “youtube” olmadigini dogrulayin
 
-    static WebDriver driver;
+    static WebDriver driver; // static methodlarda kullanilsin diye
 
     @BeforeClass
     public static void setup(){
@@ -32,19 +32,21 @@ public class C02_Assertions {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
         driver.get("https://www.youtube.com");
         ReusableMethods.bekle(1);
-        driver.findElement(By.xpath("(//div[@class='yt-spec-touch-feedback-shape__fill'])[16]")).click();
+        //driver.findElement(By.xpath("(//div[@class='yt-spec-touch-feedback-shape__fill'])[16]")).click();
+        //cookie icinde bende cikmiyor zaten
 
         ReusableMethods.bekle(5);
     }
 
     @AfterClass
     public static void teardown(){
+
         driver.close();
     }
 
     @Test
     public void titleTesti(){
-        //	○ titleTest 	=> Sayfa başlığının “YouTube” oldugunu test edin
+        //	○ titleTest => Sayfa başlığının “YouTube” oldugunu test edin
 
         String expectedTitle = "YouTube";
         String actualTitle = driver.getTitle();
@@ -54,7 +56,7 @@ public class C02_Assertions {
 
     @Test
     public void imageTest(){
-        //	○ imageTest 	=> YouTube resminin görüntülendiğini (isDisplayed()) test edin
+        //	○ imageTest => YouTube resminin görüntülendiğini (isDisplayed()) test edin
 
         WebElement logoElementi = driver.findElement(By.xpath("(//div[@class='style-scope ytd-topbar-logo-renderer'])[1]"));
 

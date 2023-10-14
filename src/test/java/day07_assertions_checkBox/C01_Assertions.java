@@ -45,6 +45,7 @@ public class C01_Assertions {
      */
     @AfterClass // static olmasi mecburi
     public static void teardown(){
+
         driver.close();
     }
 
@@ -70,7 +71,7 @@ public class C01_Assertions {
 
     @Test
     public void logoTesti(){
-        //	logoTest => BestBuy logosunun görüntülendigini TEST EDIN
+        //	logoTest => BestBuy logosunun goruntulendigini TEST EDIN
         WebElement logoElementi = driver.findElement(By.xpath("(//img[@alt = 'Best Buy Logo'])[1]"));
 
         Assert.assertTrue(logoElementi.isDisplayed());
@@ -78,7 +79,7 @@ public class C01_Assertions {
 
     @Test
     public void francaisTesti(){
-        // FrancaisLinkTest => Fransizca Linkin görüntülendiğini TEST EDIN
+        // FrancaisLinkTest => Fransizca Linkin goruntulendigini TEST EDIN
         WebElement francaisLinkElementi = driver.findElement(By.xpath("//button[normalize-space()='Français']"));
 
         Assert.assertTrue(francaisLinkElementi.isDisplayed());

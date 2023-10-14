@@ -26,30 +26,34 @@ public class C03_CheckBox {
 
     @After
     public void teardown(){
+
         driver.close();
     }
 
     @Test
     public void checkBoxTest(){
-        //a. Verilen web sayfasına gidin.
+        //a.     Verilen web sayfasına gidin.
         //	     https://the-internet.herokuapp.com/checkboxes
         driver.get("https://the-internet.herokuapp.com/checkboxes");
+
         //	b. Checkbox1 ve checkbox2 elementlerini locate edin.
         WebElement checkbox1 = driver.findElement(By.xpath("(//input[@type='checkbox'])[1]"));
         WebElement checkbox2 = driver.findElement(By.xpath("(//input[@type='checkbox'])[2]"));
         ReusableMethods.bekle(2);
 
-        //	c. Checkbox1 seçili değilse onay kutusunu tıklayın
+        //	c. Checkbox1 secili degilse onay kutusunu tıklayın
         if (!checkbox1.isSelected()){
             checkbox1.click();
         }
         ReusableMethods.bekle(2);
+
         //	d. Checkbox2 seçili değilse onay kutusunu tıklayın
         if (!checkbox2.isSelected()){
             checkbox2.click();
         }
         ReusableMethods.bekle(2);
-        //	e. Checkbox1 ve Checkbox2’nin seçili olduğunu test edin
+
+        //	e. Checkbox1 ve Checkbox2’nin secili olduğunu test edin
         Assert.assertTrue(checkbox1.isSelected() && checkbox2.isSelected());
     }
 }

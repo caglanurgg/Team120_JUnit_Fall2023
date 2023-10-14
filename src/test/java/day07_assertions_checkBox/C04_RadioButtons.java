@@ -14,7 +14,7 @@ import java.time.Duration;
 
 public class C04_RadioButtons {
 
-    //Gerekli yapiyi olusturun ve aşağıdaki görevi tamamlayın.
+    //Gerekli yapiyi olusturun ve asagidaki gorevi tamamlayin.
 
     WebDriver driver;
     @Before
@@ -33,21 +33,23 @@ public class C04_RadioButtons {
 
     @Test
     public void radioButtonTest(){
-        //	a. Verilen web sayfasına gidin.
-        //	     https://facebook.com
+        //	a. Verilen web sayfasına gidin.   https://facebook.com
         driver.get("https://facebook.com");
-        //	b. Cookies’i kabul edin
-        driver.findElement(By.xpath("//button[@title='Allow all cookies']")).click();
+
+        //	b. Cookies’i kabul edin - bende cookie cikmadigi icin yoruma aldim
+        // driver.findElement(By.xpath("//button[@title='Allow all cookies']")).click();
+
         //	c. Create an account buton’una basin
         driver.findElement(By.xpath("//*[@*='open-registration-form-button']")).click();
-        //	d. Radio button elementlerini locate edin ve size uygun olani secin
+
+        //	d. ○  Radio button elementlerini locate edin ve size uygun olani secin
         WebElement femaleRadioB = driver.findElement(By.xpath("(//input[@*='_8esa'])[1]"));
         WebElement maleRadioB = driver.findElement(By.xpath("(//input[@*='_8esa'])[2]"));
         WebElement customRadioB = driver.findElement(By.xpath("(//input[@*='_8esa'])[3]"));
 
         maleRadioB.click();
 
-        //	e. Sectiginiz radio button’un seçili, ötekilerin seçili olmadigini test edin
+        //	e. Sectiginiz radio button’un secili, otekilerin secili olmadigini test edin
 
         Assert.assertTrue(maleRadioB.isSelected()
                 && !femaleRadioB.isSelected()
