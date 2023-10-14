@@ -15,7 +15,7 @@ public class C03_JSAlerts extends TestBase {
         driver.get("https://www.youtube.com");
 
         // cookies kabul edin
-        driver.findElement(By.xpath("(//div[@class='yt-spec-touch-feedback-shape__fill'])[16]")).click();
+        //driver.findElement(By.xpath("(//div[@class='yt-spec-touch-feedback-shape__fill'])[16]")).click();
 
         bekle(7);
     }
@@ -31,13 +31,14 @@ public class C03_JSAlerts extends TestBase {
         //	- 1.alert'e tiklayin
         driver.findElement(By.xpath("//*[text.txt()='Click for JS Alert']")).click();
         bekle(2);
+
         //	-  Alert'deki yazinin "I am a JS Alert" oldugunu test edin
         String expectedYazi = "I am a JS Alert";
         String actualYazi = driver.switchTo().alert().getText();
-
         Assert.assertEquals(expectedYazi,actualYazi);
+
         //	-  OK tusuna basip alert'i kapatin
-        driver.switchTo().alert().accept();
+        driver.switchTo().alert().accept(); // switchTo() suna gecis yap demek
         bekle(2);
     }
 
@@ -49,9 +50,11 @@ public class C03_JSAlerts extends TestBase {
         //	- https://the-internet.herokuapp.com/javascript_alerts adresine gidin
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         bekle(2);
+
         //	- 2.alert'e tiklayalim
         driver.findElement(By.xpath("//*[text.txt()='Click for JS Confirm']")).click();
         bekle(2);
+
         //	- Cancel'a basip, cikan sonuc yazisinin "You clicked: Cancel" oldugunu test edin
         driver.switchTo().alert().dismiss();
         bekle(2);

@@ -15,12 +15,14 @@ public class C01_dropdownMenu extends TestBase {
         //● https://the-internet.herokuapp.com/dropdown adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dropdown");
         WebElement dropdownElementi = driver.findElement(By.xpath("//select[@id='dropdown']"));
-        Select select = new Select(dropdownElementi);
+        Select select = new Select(dropdownElementi); // select objesi olusturduk
         bekle(2);
+
         //	1.Index kullanarak Seçenek 1’i (Option 1) seçin ve yazdırın
         select.selectByIndex(1);
         System.out.println(select.getFirstSelectedOption().getText());
         bekle(2);
+
         //	2.Value kullanarak Seçenek 2'yi (Option 2) seçin ve yazdırın
         select.selectByValue("2");
         System.out.println(select.getFirstSelectedOption().getText());
@@ -30,6 +32,7 @@ public class C01_dropdownMenu extends TestBase {
         select.selectByVisibleText("Option 1");
         System.out.println(select.getFirstSelectedOption().getText());
         bekle(2);
+
         //	4.Tüm dropdown değerleri(value) yazdırın
         System.out.println("===Tum opsiyonlar===");
 

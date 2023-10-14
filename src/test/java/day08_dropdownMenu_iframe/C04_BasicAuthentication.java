@@ -20,6 +20,7 @@ public class C04_BasicAuthentication  extends TestBase {
         //
 
         driver.get("https://admin:admin@the-internet.herokuapp.com/basic_auth");
+        //https://username:password@URL  Authentication
         //4- Basarili sekilde sayfaya girildigini dogrulayin
 
         String expectedIcerik = "Congratulations";
