@@ -29,7 +29,7 @@ public class C03_JSAlerts extends TestBase {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
         bekle(2);
         //	- 1.alert'e tiklayin
-        driver.findElement(By.xpath("//*[text.txt()='Click for JS Alert']")).click();
+        driver.findElement(By.xpath("//*[text()='Click for JS Alert']")).click();
         bekle(2);
 
         //	-  Alert'deki yazinin "I am a JS Alert" oldugunu test edin
@@ -52,7 +52,7 @@ public class C03_JSAlerts extends TestBase {
         bekle(2);
 
         //	- 2.alert'e tiklayalim
-        driver.findElement(By.xpath("//*[text.txt()='Click for JS Confirm']")).click();
+        driver.findElement(By.xpath("//*[text()='Click for JS Confirm']")).click();
         bekle(2);
 
         //	- Cancel'a basip, cikan sonuc yazisinin "You clicked: Cancel" oldugunu test edin
@@ -73,7 +73,7 @@ public class C03_JSAlerts extends TestBase {
         driver.get("https://the-internet.herokuapp.com/javascript_alerts");
 
         //	- 3.alert'e tiklayalim
-        driver.findElement(By.xpath("//*[text.txt()='Click for JS Prompt']")).click();
+        driver.findElement(By.xpath("//*[text()='Click for JS Prompt']")).click();
 
         //	- Cikan prompt ekranina "Abdullah" yazdiralim
         driver.switchTo().alert().sendKeys("Abdullah");

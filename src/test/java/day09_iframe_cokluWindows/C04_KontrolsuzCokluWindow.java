@@ -15,25 +15,28 @@ public class C04_KontrolsuzCokluWindow extends TestBase {
     @Test
     public void cokluPencereTesti(){
 
-        //● https://the-internet.herokuapp.com/windows adresine gidin.
+        //●1- https://the-internet.herokuapp.com/windows adresine gidin.
         driver.get("https://the-internet.herokuapp.com/windows");
-        String ilkSayfaWhd= driver.getWindowHandle();
-        //● Sayfadaki textin “Opening a new window” olduğunu doğrulayın.
+        String ilkSayfaWhd= driver.getWindowHandle(); // windowHandleDegeri
 
+
+        //●2- Sayfadaki textin “Opening a new window” olduğunu doğrulayın.
         String expectedYazi = "Opening a new window";
         WebElement yaziElementi = driver.findElement(By.tagName("h3"));
         String actualYazi= yaziElementi.getText();
         Assert.assertEquals(expectedYazi,actualYazi);
         bekle(2);
-        //● Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
+
+        //●3- Sayfa başlığının(title) “The Internet” olduğunu doğrulayın.
         String expectedTitle = "The Internet";
         String actualTitle = driver.getTitle();
-
         Assert.assertEquals(expectedTitle,actualTitle);
-        //● Click Here butonuna basın.
+
+        //●4- Click Here butonuna basın.
         driver.findElement(By.linkText("Click Here")).click();
         bekle(2);
-        //● Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
+
+        //●5-Acilan yeni pencerenin sayfa başlığının (title) “New Window” oldugunu dogrulayin.
 
         /*
             Bir linke tikladigimizda
@@ -43,8 +46,12 @@ public class C04_KontrolsuzCokluWindow extends TestBase {
             bizim driver'i yeni sayfaya gecirmemiz gerekir.
          */
 
-
+         // onemli: driver'in ikinci sayfaya gecmesi icin
+        // o sayfanin windowHandleDegeri'ne ihtiyac var
         Set<String> whdSeti = driver.getWindowHandles();
+        // bir Set olusturayim String'lerden olussun adi da whdSeti olsun
+        // degerleri driver.getWindowHandles()'dan alsin
+        // driver.getWindowHandles() -> [ilkSayfaWhd,whdSeti]
 
         System.out.println("ilk sayfa whd : " + ilkSayfaWhd);
         System.out.println("window handles seti : " + whdSeti);
@@ -59,20 +66,22 @@ public class C04_KontrolsuzCokluWindow extends TestBase {
             }
         }
 
-        // artik 2.sayfanin whd'ini bildigimiz icin, ikinci sayfaya gecis yapabiliriz
+        //artik 2.sayfanin whd'ini bildigimiz icin (56.satir ve 67.satir arasi sayesinde)
+        //ikinci sayfaya gecis yapabiliriz
 
         driver.switchTo().window(ikinciSayfaWhd);
         String expected2Title = "New Window";
         String actual2Title = driver.getTitle();
         Assert.assertEquals(expected2Title,actual2Title);
-        //● Sayfadaki textin “New Window” olduğunu doğrulayın.
+
+        //●5- Sayfadaki textin “New Window” olduğunu doğrulayın.
         String expected2Yazi = "New Window";
         WebElement yazi2Elementi = driver.findElement(By.tagName("h3"));
         String actual2Yazi= yazi2Elementi.getText();
-
         Assert.assertEquals(expected2Yazi,actual2Yazi);
 
-        //● Bir önceki pencereye geri döndükten sonra
+
+        //●6-Bir önceki pencereye geri döndükten sonra
         //  sayfa başlığının “The Internet” olduğunu doğrulayın.
 
         driver.switchTo().window(ilkSayfaWhd);

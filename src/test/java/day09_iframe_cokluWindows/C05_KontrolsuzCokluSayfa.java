@@ -11,18 +11,25 @@ public class C05_KontrolsuzCokluSayfa extends TestBase {
 
     @Test
     public void test01(){
-        // https://the-internet.herokuapp.com/iframe url'ine gidin
+        //1- https://the-internet.herokuapp.com/iframe url'ine gidin
         driver.get("https://the-internet.herokuapp.com/iframe");
         String ilkSayfaWhd= driver.getWindowHandle();
-        // sayfa basliginin Internet icerdigini test edin
+        // ilk sayfanin WindowHandleDegeri'ni kaydettim
+
+        //2- sayfa basliginin Internet icerdigini test edin
         String expectedTitleIcerik= "Internet";
         String actualTitle = driver.getTitle();
         Assert.assertTrue(actualTitle.contains(expectedTitleIcerik));
-        // Elemental Selenium linkini tiklayin
+
+        //3- Elemental Selenium linkini tiklayin
         driver.findElement(By.linkText("Elemental Selenium")).click();
-        // Yeni acilan tab'in Title'inin Selenium icerdigini test edin
+
+        //4-Yeni acilan tab'in Title'inin Selenium icerdigini test edin
         String ikinciSayfaWhd="";
         Set<String> whdSeti = driver.getWindowHandles();
+        // bir Set olusturayim String'lerden olussun adi da whdSeti olsun
+        // degerleri driver.getWindowHandles()'dan alsin
+        // driver.getWindowHandles() -> [ilkSayfaWhd,whdSeti]
 
         for (String each : whdSeti
         ) {
@@ -30,13 +37,14 @@ public class C05_KontrolsuzCokluSayfa extends TestBase {
                 ikinciSayfaWhd = each;
             }
         }
-        driver.switchTo().window(ikinciSayfaWhd);
-        expectedTitleIcerik = "Selenium";
-        actualTitle = driver.getTitle();
+        // 28.satir ve 39.satir arasini ikinciSayfaWhd'ni bulmak icin yaptik
 
+        driver.switchTo().window(ikinciSayfaWhd); // ikinciSayfa'ya gecis yaptik
+        expectedTitleIcerik = "Selenium"; // Title'inin Selenium icerdigini
+        actualTitle = driver.getTitle();
         Assert.assertTrue(actualTitle.contains(expectedTitleIcerik));
 
-        // Ilk sayfaya donup url'in internet icerdigini test edin
+        //5- Ilk sayfaya donup url'in internet icerdigini test edin
         driver.switchTo().window(ilkSayfaWhd);
 
         String expectedUrlIcerik = "internet";
