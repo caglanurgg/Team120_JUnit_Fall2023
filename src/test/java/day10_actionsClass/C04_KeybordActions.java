@@ -14,6 +14,7 @@ public class C04_KeybordActions extends TestBase {
     public void test01(){
         //2- https://www.amazon.com sayfasina gidelim
         driver.get("https://www.amazon.com");
+
         //3- Arama kutusuna actions method’larini kullanarak
         //   Samsung A71 yazdirin ve Enter’a basarak arama yaptirin
 
@@ -37,8 +38,9 @@ public class C04_KeybordActions extends TestBase {
         //4- aramanin gerceklestigini test edin
 
         String expectedIcerik = "Samsung A71";
-        String actualSonucYazisi = driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text.txt-normal']"))
+        String actualSonucYazisi = driver.findElement(By.xpath("//h1[@class='a-size-base s-desktop-toolbar a-text-normal']"))
                 .getText();
+
 
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
         bekle(3);

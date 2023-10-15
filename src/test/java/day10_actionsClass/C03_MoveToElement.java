@@ -20,12 +20,14 @@ public class C03_MoveToElement extends TestBase {
             AMA kullanilamiyor
 
             acilir menuyu acmadan elementleri kullanmaya kalkisinca
-            ElementNotInteractableException
-            veriyor.
+            ElementNotInteractableException veriyor.
+            Yani ben elementi bulabiliyorum ama Interactable degil demis oluyor.
+            yani su anda benimle etkilesim icin uygun degil.
          */
 
         //1- https://www.amazon.com/ adresine gidin
         driver.get("https://www.amazon.com/");
+
         //2- Sag ust bolumde bulunan “Account & Lists” menusunun acilmasi icin
         //   mouse’u bu menunun ustune getirin
         Actions actions = new Actions(driver);
@@ -33,8 +35,9 @@ public class C03_MoveToElement extends TestBase {
 
         actions.moveToElement(listsElementi).perform();
         bekle(2);
+
         //3- “Create a list” butonuna basin
-        driver.findElement(By.xpath("//*[text.txt()='Create a List']")).click();
+        driver.findElement(By.xpath("//*[text()='Create a List']")).click();
 
 
         //4- Acilan sayfada “Your Lists” yazisi oldugunu test edin

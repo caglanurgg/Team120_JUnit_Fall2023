@@ -1,5 +1,6 @@
 package day10_actionsClass;
 
+import com.github.javafaker.Faker;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -14,20 +15,23 @@ public class C05_KeyboardActions extends TestBase {
     public void test01(){
         //1- https://www.facebook.com adresine gidelim
         driver.get("https://www.facebook.com");
+
         //2- Cookies kabul edin
-        driver.findElement(By.xpath("//button[@title='Allow all cookies']")).click();
+        //driver.findElement(By.xpath("//button[@title='Allow all cookies']")).click();
+
         //3- Yeni hesap olustur butonuna basalim
         driver.findElement(By.xpath("//*[@*='open-registration-form-button']")).click();
+
         //4- Ad, soyad, mail ve sifre kutularina deger yazalim ve kaydol tusuna basalim
         WebElement isimKutusu= driver.findElement(By.name("firstname"));
 
-        Actions actions = new Actions(driver);
-      //  Faker faker = new Faker();
+        Actions actions = new Actions(driver); // once actions objesi olusturmak
+        Faker faker = new Faker(); // Faker'dan da bir obje olusturuyorum
 
-       // String email= faker.internet().emailAddress();
+        String email= faker.internet().emailAddress(); // urettirip kaydettim
 
-       // actions.click(isimKutusu)
-        /*        .sendKeys(faker.name().firstName())
+        actions.click(isimKutusu)
+               .sendKeys(faker.name().firstName())
                 .sendKeys(Keys.TAB)
                 .sendKeys(faker.name().lastName())
                 .sendKeys(Keys.TAB)
@@ -47,7 +51,7 @@ public class C05_KeyboardActions extends TestBase {
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.ARROW_RIGHT)
                 .perform();
-*/
+
         //5- Kaydol tusuna basalim
         driver.findElement(By.xpath("//button[@name='websubmit']")).click();
 

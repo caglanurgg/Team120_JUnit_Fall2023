@@ -18,26 +18,28 @@ public class C01_sagClick extends TestBase {
         //2- https://the-internet.herokuapp.com/context_menu sitesine gidin
         driver.get("https://the-internet.herokuapp.com/context_menu");
         bekle(2);
+
         //3- Cizili alan uzerinde sag click yapin
         WebElement ciziliAlanElementi = driver.findElement(By.id("hot-spot"));
 
-        Actions actions = new Actions(driver);
+        Actions actions = new Actions(driver); // once actions objesi olusturmak
 
-        actions.contextClick(ciziliAlanElementi).perform();
+        actions.contextClick(ciziliAlanElementi).perform(); //sag click yapin
         bekle(2);
 
         //4- Alert’te cikan yazinin “You selected a context menu” oldugunu test edin.
         String expectedAlertyazi = "You selected a context menu";
         String actualAlertYazisi = driver.switchTo().alert().getText();
-
         Assert.assertEquals(expectedAlertyazi,actualAlertYazisi);
+
         //5- Tamam diyerek alert’i kapatalim
         driver.switchTo().alert().accept();
         bekle(2);
+
         //6- Elemental Selenium linkine tiklayalim
         String ilkSayfaWhd = driver.getWindowHandle();
 
-        driver.findElement(By.xpath("//*[text.txt()='Elemental Selenium']")).click();
+        driver.findElement(By.xpath("//*[text()='Elemental Selenium']")).click();
         bekle(2);
         String ikinciSayfaWhd = "";
         Set<String> whdSeti = driver.getWindowHandles();
