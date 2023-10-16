@@ -15,7 +15,7 @@ public class C03_FileUploadTesti extends TestBase {
         //https://the-internet.herokuapp.com/upload adresine gidelim
         driver.get("https://the-internet.herokuapp.com/upload");
         //chooseFile butonuna basalim
-        //text.txt.txt dosyasini secelim.
+        //text.txt dosyasini secelim.
         /*
             insan olarak dosya secimi icin
             chooseFile butonuna bastiktan sonra
@@ -29,7 +29,7 @@ public class C03_FileUploadTesti extends TestBase {
          */
 
         WebElement uploadButtonElementi = driver.findElement(By.id("file-upload"));
-        String dinamikDosyaYolu = System.getProperty("user.dir") + "/src/test/java/day11_fileTestleri_Waits/text.txt.txt";
+        String dinamikDosyaYolu = System.getProperty("user.dir") + "/src/test/java/day11_fileTestleri_Waits/text.txt";
 
         uploadButtonElementi.sendKeys(dinamikDosyaYolu);
 

@@ -17,19 +17,21 @@ public class C04_ExplicitlyWait {
 
     @Test
     public void test01(){
-        //1. WebDriver ayarlarini implicitlyWait kullanmadan yapin
+        //1. WebDriver ayarlarini implicitlyWait KULLANMADAN yapin
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         // driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        //3. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
+
+        //2. https://the-internet.herokuapp.com/dynamic_controls adresine gidin.
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
-        //4. Textbox’in etkin olmadigini(enabled) dogrulayın
-        WebElement textBox= driver.findElement(By.xpath("//input[@type='text.txt']"));
+
+        //3. Textbox’in etkin olmadigini(enabled) dogrulayın
+        WebElement textBox= driver.findElement(By.xpath("//input[@type='text']"));
         Assert.assertFalse(textBox.isEnabled());
 
-        //5. Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
-        driver.findElement(By.xpath("//*[text.txt()='Enable']")).click();
+        //4. Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
+        driver.findElement(By.xpath("//*[text()='Enable']")).click();
 
         /*
             Explicit Wait ile beklemek icin
@@ -39,16 +41,20 @@ public class C04_ExplicitlyWait {
          */
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
-        // textbox locate edilmisti
+        //*1- wait objesi olusturalim
+
+        //*2- textbox locate edilmisti
+
         wait.until(ExpectedConditions.elementToBeClickable(textBox));
+        // Enable butonuna tıklayın ve textbox etkin oluncaya kadar bekleyin
+        //*3- belirledigimiz webelement ne icin bekletilecek ?
 
 
-
-        //6. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
+        //5. “It’s enabled!” mesajinin goruntulendigini dogrulayın.
         WebElement itsEnabledElementi = driver.findElement(By.xpath("//p[@id='message']"));
         Assert.assertTrue(itsEnabledElementi.isDisplayed());
 
-        //7. Textbox’in etkin oldugunu(enabled) dogrulayın.
+        //6. Textbox’in etkin oldugunu(enabled) dogrulayın.
         Assert.assertTrue(textBox.isEnabled());
 
         ReusableMethods.bekle(2);

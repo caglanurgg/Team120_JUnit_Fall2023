@@ -24,33 +24,35 @@ public class C02_DinamikDosyaYoluOlusturma {
 
          */
 
-        // masaustumuzde bulunan logo.jpg dosyasinin varligini
+        // masaustumuzde bulunan image.jpg dosyasinin varligini
         // dinamik dosya yolu kullanarak test edelim
 
-        //     /Users/ahmetbulutluoz/Desktop/logo.jpg
+        //     C:\Users\Cagla\Desktop\image.jpg
 
-        //     "/Users/ahmetbulutluoz" +    "/Desktop/logo.jpg"
+        //     "C:\Users\Cagla" +    "\Desktop\image.jpg"
         //         Ana dosya yolu        Herkeste ayni olan kisim
 
-        String dinamikDosyaYolu = System.getProperty("user.home") + "/Desktop/logo.jpg" ;
+        String dinamikDosyaYolu = System.getProperty("user.home") + "\\Desktop\\image.jpg" ;
 
-        System.out.println(dinamikDosyaYolu); //   /Users/ahmetbulutluoz/Desktop/logo.jpg
+        System.out.println(dinamikDosyaYolu); // C:\Users\Cagla\Desktop\image.jpg
 
         Assert.assertTrue(Files.exists(Paths.get(dinamikDosyaYolu)));
 
-
         System.out.println(System.getProperty("user.dir"));
+        //C:\Users\Cagla\IdeaProjects\Team120_JUnit_Fall2023
 
-        // /Users/ahmetbulutluoz/Desktop/My Desktop/course/projeler/Team120_JUnit_Fall2023
 
-        // projemizde var olan text.txt.txt 'nin varligini
+        // projemizde var olan text.txt'nin varligini
         // dinamik dosya yolu ile test edelim
 
-        // /Users/ahmetbulutluoz/Desktop/My Desktop/course/projeler/Team120_JUnit_Fall2023
-        //                /src/test/java/day11_fileTestleri_Waits/text.txt.txt
+        //C:\Users\Cagla\IdeaProjects\Team120_JUnit_Fall2023
+        //    \src\test\java\day11_fileTestleri_Waits\text.txt
+        //49.satir hepimiz icin ayni
+
+
 
         String dinamikTextDosyayolu = System.getProperty("user.dir") +
-                "/src/test/java/day11_fileTestleri_Waits/text.txt.txt";
+               "/src/test/java/day11_fileTestleri_Waits/text.txt";
 
         Assert.assertTrue(Files.exists(Paths.get(dinamikTextDosyayolu)));
     }
