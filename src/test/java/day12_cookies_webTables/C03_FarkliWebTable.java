@@ -14,6 +14,7 @@ public class C03_FarkliWebTable extends TestBase {
     public void webTableTest(){
         // 1. “https://demoqa.com/webtables” sayfasina gidin
         driver.get("https://demoqa.com/webtables");
+
         //  2. Headers da bulunan basliklari yazdirin
         List<WebElement> baslikElementleriList =
                 driver.findElements(By.xpath("//*[@*='columnheader']"));
@@ -23,9 +24,10 @@ public class C03_FarkliWebTable extends TestBase {
             System.out.print(each.getText() + " ");
         }
         System.out.println("");
-        //  3. 3.sutunun basligini yazdirin
 
+        //  3. 3.sutunun basligini yazdirin
         System.out.println("3.sutun basligi : "+baslikElementleriList.get(2).getText());
+
         //  4. Tablodaki tum datalari yazdirin
         WebElement tumBodyElementi = driver.findElement(By.xpath("//*[@*='rt-tbody']"));
         System.out.println(tumBodyElementi.getText());
@@ -51,8 +53,8 @@ public class C03_FarkliWebTable extends TestBase {
 
         List<WebElement> satirElementleriListesi = driver.findElements(By.xpath("//*[@*='rowgroup']"));
         System.out.println("Tablodaki satir sayisi : " + satirElementleriListesi.size());
-        //  7. Tablodaki sutun sayisini yazdirin
 
+        //  7. Tablodaki sutun sayisini yazdirin
         List<WebElement> ikinciSatirElementleriList =
                 driver.findElements(By.xpath("(//*[@*='rowgroup'])[2]//*[@*='gridcell']"));
         System.out.println("Tablodaki sutun sayisi : " + ikinciSatirElementleriList.size());
@@ -106,7 +108,6 @@ public class C03_FarkliWebTable extends TestBase {
 
     }
 
-
     public void datayiYazdir(int satirNo, int sutunNo){
 
         String dinamikXPath = "((//*[@role='rowgroup'])[" + satirNo
@@ -115,6 +116,8 @@ public class C03_FarkliWebTable extends TestBase {
         String istenenData = driver.findElement(By.xpath(dinamikXPath)).getText();
 
         System.out.println(satirNo+". satir," + sutunNo +".sutundaki bilgi : " + istenenData);
-
+        //3. satir,3.sutundaki bilgi : 29
+        //1. satir,4.sutundaki bilgi : cierra@example.com
     }
 }
+//  ((//*[@role='rowgroup'])[1]//*[@role='gridcell'])[1]

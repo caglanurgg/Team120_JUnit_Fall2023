@@ -15,10 +15,12 @@ public class C01_Cookies extends TestBase {
 
         //1- Amazon anasayfaya gidin
         driver.get("https://www.amazon.com");
+        bekle(20);
+
         //2- tum cookie’leri listeleyin
         Set<Cookie> cookieSeti =  driver.manage().getCookies();
         // System.out.println(cookieSeti);
-        // bu sekilde yazdirinca kac cookie oldugu, ve bunlarin neler oldugu anlasilmiyor
+        // bu sekilde yazdirinca kac cookie oldugu ve bunlarin neler oldugu anlasilmiyor
 
         int siraNo= 1;
         for (Cookie each : cookieSeti
@@ -42,7 +44,7 @@ public class C01_Cookies extends TestBase {
         //   bir cookie olusturun ve sayfaya ekleyin
 
         Cookie yeniCookie = new Cookie("en sevdigim cookie","cikolatali");
-        driver.manage().addCookie(yeniCookie);
+        driver.manage().addCookie(yeniCookie); // sayfaya ekleyin
 
         //6- eklediginiz cookie’nin sayfaya eklendigini test edin
         System.out.println("========== Yeni cookie eklendikten sonra========== ");
@@ -54,7 +56,7 @@ public class C01_Cookies extends TestBase {
             siraNo++;
         }
 
-        boolean yeniCookieEklendiMi = false ;
+        boolean yeniCookieEklendiMi = false ; //bulursam true yapmak istiyorum
 
         for (Cookie each : cookieSeti
         ) {
@@ -93,7 +95,6 @@ public class C01_Cookies extends TestBase {
         Assert.assertTrue(skinSilindiMi);
 
         //8- tum cookie’leri silin ve silindigini test edin
-
         driver.manage().deleteAllCookies();
 
         cookieSeti =  driver.manage().getCookies();
