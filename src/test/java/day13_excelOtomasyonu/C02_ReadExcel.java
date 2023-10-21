@@ -39,10 +39,12 @@ public class C02_ReadExcel {
         Assert.assertEquals(expectedFizikiSatirSayisi,actualFizikiSatirSayisi);
 
 
-
+         // bizim olusturdugumuz workbook sadece dolu yerleri aliyor.
         // olmayan satir veya sutun numarasi yazdirmaya calissak
-        // System.out.println(sayfa2.getRow(30).getCell(1)); NullPointerException
+        //System.out.println(sayfa2.getRow(30).getCell(1));NullPointerException verir.
+
         System.out.println(sayfa2.getRow(5).getCell(10)); // null
+       //olan satirda OLMAYAN HUCREYI yazdirirsam null O HUCREYE BİR DEGER ATANMAMIS
 
 
     }

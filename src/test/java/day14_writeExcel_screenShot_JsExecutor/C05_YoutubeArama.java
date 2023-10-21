@@ -1,5 +1,5 @@
 package day14_writeExcel_screenShot_JsExecutor;
-/*
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -35,7 +35,7 @@ public class C05_YoutubeArama extends TestBase {
         System.out.println(actualVideoIsmi);
         Assert.assertTrue(actualVideoIsmi.contains(expectedIcerik));
         // ilk video isminin fotografini cekin
-        ReusableMethods.webElementFotografCek(ilkVideoIsmi,"Ahmet youtube");
+       // ReusableMethods.webElementFotografCek(ilkVideoIsmi,"Ahmet youtube");
 
 
         bekle(3);
@@ -44,4 +44,3 @@ public class C05_YoutubeArama extends TestBase {
 }
 
 
- */

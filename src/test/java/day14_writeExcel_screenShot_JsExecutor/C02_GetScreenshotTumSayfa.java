@@ -14,13 +14,14 @@ public class C02_GetScreenshotTumSayfa extends TestBase {
     @Test
     public void tumSayfaScreenshot() throws IOException {
 
-        // amazon anasayfaya gidin
+        // *1)amazon anasayfaya gidin
         driver.get("https://www.amazon.com");
 
-        // Nutella icin arama yapin
+        // *2)Nutella icin arama yapin
         WebElement aramaKutusu = driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella"+ Keys.ENTER);
-        // Sonuclarin Nutella icerdigini test edin
+
+        // *3)Sonuclarin Nutella icerdigini test edin
 
         WebElement sonucYaziElementi = driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
 
@@ -28,20 +29,24 @@ public class C02_GetScreenshotTumSayfa extends TestBase {
         String actualSonucYazisi = sonucYaziElementi.getText();
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
 
-        // rapor icin sayfanin fotografini cekin
+        // *elimizde bir delil olmasini istiyorsak
+        // *rapor icin sayfanin fotografini cekin
 
         // 1.adim TakeScreenshot objesi olusturma
         TakesScreenshot tss = (TakesScreenshot) driver;
 
-        // 2.adim fotografi kaydedecegimiz dosyayi olusturalim, dosya yolunu yazalim
+        // 2.adim kaydedecegimiz fotografi projede istedigimiz yere kaydedebilmek icin
+        // yeni bir file(dosya) olusturalim, dosya yolunu(path)yazalim
 
         File tumSayfaScreenshot = new File("target/screenShots/tumSayfaScreenshot.png");
 
-        // 3.adim bir gecici dosya olusturup buna tss objesi ile cektigimiz fotografi kaydedelim
+        // 3.adim
+        //Takescreenshot objesini kullanarak getScreenshotAs( ) methodunu
+        // calistiralim ve gelen resmi gecici bir file’a assign edelim
 
         File geciciResim = tss.getScreenshotAs(OutputType.FILE);
 
-        // 4.adim gecici resmi asil dosyaya kopyalayalim
+        // 4.adim Kaydettigimiz goruntuyu, saklamak istedigimiz dosyaya kopyalayalim
 
         FileUtils.copyFile(geciciResim,tumSayfaScreenshot);
 

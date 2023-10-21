@@ -1,5 +1,5 @@
 package day14_writeExcel_screenShot_JsExecutor;
-/*
+
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -39,9 +39,9 @@ public class C04_WebElementScreenshot extends TestBase {
 
         FileUtils.copyFile(geciciResim,sonucYazisiSS);
 
-        ReusableMethods.webElementFotografCek(sonucYaziElementi,"NutellaArama");
+      //  ReusableMethods.webElementFotografCek(sonucYaziElementi,"NutellaArama");
 
     }
 }
 
- */
+
