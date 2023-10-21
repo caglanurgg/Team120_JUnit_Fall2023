@@ -38,7 +38,7 @@ public class C02_GetScreenshotTumSayfa extends TestBase {
         // 2.adim kaydedecegimiz fotografi projede istedigimiz yere kaydedebilmek icin
         // yeni bir file(dosya) olusturalim, dosya yolunu(path)yazalim
 
-        File tumSayfaScreenshot = new File("target/screenShots/tumSayfaScreenshot.png");
+        File tumSayfaScreenshot = new File("target\\screenShots\\tumSayfaScreenshot.png");
 
         // 3.adim
         //Takescreenshot objesini kullanarak getScreenshotAs( ) methodunu

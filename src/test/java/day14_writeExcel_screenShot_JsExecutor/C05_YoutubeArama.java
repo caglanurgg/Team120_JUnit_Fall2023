@@ -35,7 +35,7 @@ public class C05_YoutubeArama extends TestBase {
         System.out.println(actualVideoIsmi);
         Assert.assertTrue(actualVideoIsmi.contains(expectedIcerik));
         // ilk video isminin fotografini cekin
-       // ReusableMethods.webElementFotografCek(ilkVideoIsmi,"Ahmet youtube");
+        ReusableMethods.webElementFotografCek(ilkVideoIsmi,"Ahmet youtube");
 
 
         bekle(3);

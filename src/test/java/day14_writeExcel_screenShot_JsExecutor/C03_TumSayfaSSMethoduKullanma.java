@@ -11,12 +11,14 @@ public class C03_TumSayfaSSMethoduKullanma extends TestBase {
     public void testWise(){
         // wisequarter anasayfaya gidin
         driver.get("https://www.wisequarter.com");
+
         // url'in wise icerdigini test edin
         String expectedIcerik = "wise";
         String actualUrl = driver.getCurrentUrl();
         Assert.assertTrue(actualUrl.contains(expectedIcerik));
+
         // sonucu raorlamak icin tum sayfa screenshot alip kaydedin
-       // ReusableMethods.tumSayfaFotografCek(driver,"wise");
+        ReusableMethods.tumSayfaFotografCek(driver,"wise");
     }
 
     @Test
@@ -29,7 +31,7 @@ public class C03_TumSayfaSSMethoduKullanma extends TestBase {
         Assert.assertTrue(actualUrl.contains(expectedIcerik));
 
         // sonucu raporlamak icin tum sayfa screenshot alip kaydedin
-      //  ReusableMethods.tumSayfaFotografCek(driver,"AB");
+        ReusableMethods.tumSayfaFotografCek(driver,"AB");
     }
 
     @Test
@@ -41,7 +43,7 @@ public class C03_TumSayfaSSMethoduKullanma extends TestBase {
         String actualUrl = driver.getCurrentUrl();
         Assert.assertTrue(actualUrl.contains(expectedIcerik));
         // sonucu raorlamak icin tum sayfa screenshot alip kaydedin
-      //  ReusableMethods.tumSayfaFotografCek(driver,"youtube");
+       ReusableMethods.tumSayfaFotografCek(driver,"youtube");
     }
 }
 

@@ -31,15 +31,16 @@ public class C04_WebElementScreenshot extends TestBase {
         String actualSonucYazisi = sonucYaziElementi.getText();
         Assert.assertTrue(actualSonucYazisi.contains(expectedIcerik));
 
-        // Rapora eklenmek icin sonuc yazisinin screenshot'ini alalim
+        //*Rapora eklenmek icin sonuc yazisinin screenshot'ini alalim
 
-        File sonucYazisiSS = new File("target/screenShots/sonucYazisi.jpg");
+        File sonucYazisiSS = new File("target\\screenShots\\sonucYazisi.jpg");
 
         File geciciResim = sonucYaziElementi.getScreenshotAs(OutputType.FILE);
 
         FileUtils.copyFile(geciciResim,sonucYazisiSS);
 
-      //  ReusableMethods.webElementFotografCek(sonucYaziElementi,"NutellaArama");
+        //dinamik yapabilmek icin
+      ReusableMethods.webElementFotografCek(sonucYaziElementi,"NutellaArama");
 
     }
 }
