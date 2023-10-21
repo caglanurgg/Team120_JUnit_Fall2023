@@ -15,22 +15,22 @@ public class C05_YoutubeArama extends TestBase {
 
         // youtube anasayfaya gidin
         driver.get("https://www.youtube.com");
-        bekle(2);
+        bekle(5);
 
         // cookies kabul edin
+        //driver.findElement(By.xpath("(//div[@class='yt-spec-touch-feedback-shape__fill'])[14]")).click();
+        //bekle(3);
 
-        driver.findElement(By.xpath("(//div[@class='yt-spec-touch-feedback-shape__fill'])[14]")).click();
-        bekle(3);
         // ahmet bulutluoz icin arama yapin
         WebElement aramaKutusu = driver.findElement(By.xpath("//input[@id='search']"));
         aramaKutusu.click();
         aramaKutusu.sendKeys("Ahmet Bulutluoz" + Keys.ENTER);
 
-        // bulunan videolardan ilkinin isminde QA gectigini test edin
+        // bulunan videolardan ilkinin isminde JAVA gectigini test edin
 
         WebElement ilkVideoIsmi = driver.findElement(By.xpath("(//a[@id='video-title'])[1]"));
 
-        String expectedIcerik = "QA";
+        String expectedIcerik = "JAVA";
         String actualVideoIsmi= ilkVideoIsmi.getText();
         System.out.println(actualVideoIsmi);
         Assert.assertTrue(actualVideoIsmi.contains(expectedIcerik));
